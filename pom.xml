@@ -101,11 +101,6 @@
 		<org.eclipse.m2e.lifecycle-mapping.version>1.0.0</org.eclipse.m2e.lifecycle-mapping.version>
 		<wagon-ssh.version>2.2</wagon-ssh.version>
 		
-		
-		<!-- bundle properties -->
-		<bundle.symbolicName>org.fringe.jf.json</bundle.symbolicName>
-    	<bundle.namespace>org.fringe.jf.json</bundle.namespace>
-
 	</properties>
 
 	<build>
@@ -305,6 +300,8 @@
 				    <message>Creating site for ${project.artifactId}, ${project.version}</message>
 				    <!-- this does the trick to place every module in the correct subfolder -->
 				    <path>${project.distributionManagement.site.url}</path>
+				    <repositoryOwner>jomarmar</repositoryOwner>
+					<repositoryName>${project.artifactId}</repositoryName>
 				    <merge>true</merge>
 				  </configuration>
 				  <executions>
@@ -560,6 +557,19 @@
 	</dependencies>
 
 	<!-- ##################################################################################################### -->
+	
+	<repositories>
+		<repository>
+    		<id>jf-releases-repo</id>
+		    <name>JF Maven Releases repository</name>
+		    <url>http://jomarmar.github.com/repository/releases</url>
+		</repository>
+		<repository>
+    		<id>jf-snapshots-repo</id>
+    		<name>JF Maven Snapshots repository</name>
+		    <url>http://jomarmar.github.com/repository/snapshots</url>
+		</repository>
+	</repositories>
 
 
 </project>
