@@ -6,11 +6,13 @@
 	<name>jf-parent</name>
 	<description>Parent pom for all JF Projects</description>
 	<url>https://github.com/jomarmar/jf-parent</url>
+	
+	<groupId>org.fringe</groupId>
+	<artifactId>jf-parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
 
-	<issueManagement>
-		<url>https://github.com/jomarmar/jf-parent/issues</url>
-		<system>GitHub Issues</system>
-	</issueManagement>
+	
 
 	<licenses>
 		<license>
@@ -19,11 +21,16 @@
 			<distribution>repo</distribution>
 		</license>
 	</licenses>
+	
+	<issueManagement>
+		<url>https://github.com/jomarmar/${project.artifactId}/issues</url>
+		<system>GitHub</system>
+	</issueManagement>
 
 	<scm>
-		<url>https://github.com/jomarmar/jf-parent</url>
-		<connection>scm:git:https://github.com/jomarmar/jf-parent.git</connection>
-		<developerConnection>scm:git:git@github.com:jomarmar/jf-parent.git</developerConnection>
+		<url>https://github.com/jomarmar/${project.artifactId}</url>
+		<connection>scm:git:https://github.com/jomarmar/${project.artifactId}.git</connection>
+		<developerConnection>scm:git:git@github.com:jomarmar/${project.artifactId}.git</developerConnection>
 	</scm>
 
 	<developers>
@@ -41,10 +48,7 @@
 
 	
 
-	<groupId>org.fringe</groupId>
-	<artifactId>jf-parent</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	
 
 	<distributionManagement>
 		<repository>
@@ -101,7 +105,10 @@
 		<org.eclipse.m2e.lifecycle-mapping.version>1.0.0</org.eclipse.m2e.lifecycle-mapping.version>
 		<wagon-ssh.version>2.2</wagon-ssh.version>
 		
+		
 	</properties>
+	
+	
 
 	<build>
 		<resources>
@@ -300,8 +307,9 @@
 				    <message>Creating site for ${project.artifactId}, ${project.version}</message>
 				    <!-- this does the trick to place every module in the correct subfolder -->
 				    <path>${project.distributionManagement.site.url}</path>
+				    <branch>refs/heads/master</branch>
 				    <repositoryOwner>jomarmar</repositoryOwner>
-					<repositoryName>${project.artifactId}</repositoryName>
+					<repositoryName>jomarmar.github.io</repositoryName>
 				    <merge>true</merge>
 				  </configuration>
 				  <executions>
@@ -344,6 +352,17 @@
 					<artifactId>maven-jxr-plugin</artifactId>
 					<version>2.1</version>
 				</plugin>
+				
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-changes-plugin</artifactId>
+					<version>2.9</version>
+					
+					<configuration>
+	         				<githubAPIScheme>https</githubAPIScheme>
+	         				<githubAPIPort>443</githubAPIPort>
+	       			</configuration>
+				</plugin>
 
 				<!-- Deploy phase -->
 				<plugin>
@@ -356,7 +375,7 @@
 					<artifactId>maven-clean-plugin</artifactId>
 					<version>2.4.1</version>
 				</plugin>
-
+				
 			</plugins>
 
 		</pluginManagement>
@@ -479,7 +498,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-changes-plugin</artifactId>
-				<version>2.9</version>
 				<reportSets>
 					<reportSet>
 						<reports>
@@ -488,6 +506,7 @@
 					</reportSet>
 				</reportSets>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
@@ -499,6 +518,7 @@
 							<!-- <report>project-team</report> -->
 							<!-- <report>dependencies</report> -->
 							<!-- <report>dependency-management</report> -->
+							<report>issue-tracking</report>
 							<report>plugins</report>
 							<!-- <report>plugin-management</report> -->
 							<report>scm</report>
