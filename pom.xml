@@ -411,8 +411,6 @@
 
 	<!-- ##################################################################################################### -->
 
-	<!-- <reporting> <excludeDefaults>true</excludeDefaults> </reporting> -->
-
 	<reporting>
 		<plugins>
 			<plugin>
