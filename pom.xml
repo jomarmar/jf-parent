@@ -240,14 +240,14 @@
 						<target>1.6</target>
 						<fixDependencies>true</fixDependencies>
 					</configuration>
-					<executions>
+					<!-- <executions>
 						<execution>
 							<id>ide-support</id>
 							<goals>
 								<goal>eclipse</goal>
 							</goals>
 						</execution>
-					</executions>
+					</executions>    -->
 					<extensions>true</extensions>
 				</plugin>
 
