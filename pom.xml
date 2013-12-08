@@ -79,7 +79,7 @@
 		<osgi.version>4.3.0</osgi.version>
 		<slf4j.version>1.7.5</slf4j.version>
 
-        <logback.version>1.0.13</logback.version>
+        <!--<logback.version>1.0.13</logback.version> -->
 
 		<!-- Test Dependencies -->
 		<junit.version>4.11</junit.version>
@@ -579,10 +579,10 @@
 	</dependencyManagement>
 
 	<dependencies>
-	    <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>${logback.version}</version>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
         </dependency>
 
         <dependency>
